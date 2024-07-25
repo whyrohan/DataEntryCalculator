@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+          <link rel="stylesheet" href="DataE.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Date Calculation</title>
+    <script>
+        function calculateMonthsBetweenDates(startDay, startMonth, startYear, endDay, endMonth, endYear) {
+            let monthsBetween = (endYear - startYear) * 12 + (endMonth - startMonth);
+            if (endDay < startDay) {
+                monthsBetween--;
+            }
+            return monthsBetween;
+        }
+
+        function parseDate(date) {
+            const [day, month, year] = date.split('/').map(Number);
+            return { day, month, year };
+        }
+
+        function calculateResult() {
+            const startDate = document.getElementById('start-date').value;
+            const endDate = document.getElementById('end-date').value;
+            const x = parseFloat(document.getElementById('x-value').value);
+
+            const { day: startDay, month: startMonth, year: startYear } = parseDate(startDate);
+            const { day: endDay, month: endMonth, year: endYear } = parseDate(endDate);
+
+            const monthsBetween = calculateMonthsBetweenDates(startDay, startMonth, startYear, endDay, endMonth, endYear);
+
+            let result = x / monthsBetween;
+            result += result * 0.1033;
+
+            document.getElementById('result').innerText = `Result: ${result.toFixed(2)}`;
+        }
+
+        function refreshPage() {
+            document.getElementById('start-date').value = '';
+            document.getElementById('end-date').value = '';
+            document.getElementById('x-value').value = '';
+            document.getElementById('result').innerText = '';
+        }
+    </script>
+</head>
+<body>
+          <div ali></div>
+    <h1>Date Calculation</h1>
+    <label for="start-date">Enter the start date (DD/MM/YYYY): </label>
+    <input type="text" id="start-date" placeholder="DD/MM/YYYY"><br><br>
+    
+    <label for="end-date">Enter the end date (DD/MM/YYYY): </label>
+    <input type="text" id="end-date" placeholder="DD/MM/YYYY"><br><br>
+    
+    <label for="x-value">Enter the value of x: </label>
+    <input type="number" id="x-value" step="0.01"><br><br>
+    
+    <button onclick="calculateResult()">Calculate</button>
+    <button onclick="refreshPage()">Refresh</button>
+    
+    <h2 id="result"></h2>
+</body>
+</html>

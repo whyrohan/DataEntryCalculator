@@ -1,0 +1,53 @@
+/*
+Body Centered
+*/
+
+html, body {
+          height: 100%;
+      }
+      
+      html {
+          display: table;
+          margin: auto;
+      }
+      
+      body {
+          display: table-cell;
+          vertical-align: middle;
+      }
+
+/*
+Button Color
+*/
+
+      body {
+          font-family: Arial, sans-serif;
+          margin: 0;
+          padding: 20px;
+      }
+      .container {
+          max-width: 600px;
+          margin: 0 auto;
+      }
+      label {
+          display: block;
+          margin-top: 10px;
+      }
+      input, button {
+          width: 100%;
+          padding: 10px;
+          margin-top: 5px;
+      }
+      button {
+          background-color: #4CAF50;
+          color: white;
+          border: none;
+          cursor: pointer;
+      }
+      button:hover {
+          background-color: #45a049;
+      }
+      .result {
+          margin-top: 20px;
+          font-weight: bold;
+      }
